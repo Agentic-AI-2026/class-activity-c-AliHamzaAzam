@@ -1,0 +1,99 @@
+Initializing LLM and Tools...
+User Query: What is the weather in Lahore and who is the current Prime Minister of Pakistan? Now get the age of PM and tell us will this weather suits PM health.
+
+Getting Tools...
+MCP tools loaded: ['search_web', 'search_news', 'add', 'subtract', 'multiply', 'divide', 'power', 'square_root', 'calculator', 'get_current_weather', 'get_weather_forecast']
+
+--- Running Graph ---
+[react_node] execution completed.
+   Thought: I'll help you find this information. Let me get the weather in Lahore and search for the current Prime Minister of Pakistan simultaneously.
+   | Executing Tool [get_current_weather] | Args: {'city': 'Lahore'}
+      Observation: [{'type': 'text', 'text': 'Current weather in Lahore:\n  Condition : Sunny\n  Temp      : 30.1 C\n  Feels like: 18.7 C\n  Wind      : 2.7 km/h\n  Humidity  : 76%', 'id': 'lc_41bc6ace-ab20-4aaf-a12b-6eea5d0e22de'}]
+   | Executing Tool [search_web] | Args: {'query': 'current Prime Minister of Pakistan 2024'}
+      Observation: [{'type': 'text', 'text': '[1] Prime Minister of Pakistan\n    Mian Muhammad Shehbaz Sharif is a Pakistani politician and businessman who is currently serving as the 24th prime minister of Pakistan since March 2024,\n\n[2] Prime Minister of Pakistan - Wikipedia\n    Incumbent Shehbaz Sharif. since 4 March 2024. Executive branch of the. Government of Pakistan ; Incumbent Shehbaz Sharif. since 4 March 2024. Executive branch of\n\n[3] Toronto - Prime Minister of Islamic Republic of Pakistan\n    Prime Minister Muhammad Shahbaz Sharif took oath of the office on 4 March 2024. Previously, he served as the Prime Minister of Pakistan from April - 2022 to', 'id': 'lc_16f5f0f5-580b-4193-8ff1-18ae4176366d'}]
+[tool_node] execution completed.
+   Thought: [{'type': 'text', 'text': '[1] Prime Minister of Pakistan\n    Mian Muhammad Shehbaz Sharif is a Pakistani politician and businessman who is currently serving as the 24th prime minister of Pakistan since March 2024,\n\n[2] Prime Minister of Pakistan - Wikipedia\n    Incumbent Shehbaz Sharif. since 4 March 2024. Executive branch of the. Government of Pakistan ; Incumbent Shehbaz Sharif. since 4 March 2024. Executive branch of\n\n[3] Toronto - Prime Minister of Islamic Republic of Pakistan\n    Prime Minister Muhammad Shahbaz Sharif took oath of the office on 4 March 2024. Previously, he served as the Prime Minister of Pakistan from April - 2022 to', 'id': 'lc_16f5f0f5-580b-4193-8ff1-18ae4176366d'}]
+[react_node] execution completed.
+   Thought: Now I need to find the age of Shehbaz Sharif. Let me search for that information.
+   | Executing Tool [search_web] | Args: {'query': 'Shehbaz Sharif age date of birth'}
+      Observation: [{'type': 'text', 'text': '[1] Shehbaz Sharif Facts for Kids\n    | Preceded by | Anwaar ul Haq Kakar (Caretaker Prime Minister of Pakistan) |. | Born | Muhammad Shehbaz Sharif   (1951-09-23) 23 September 1951 (age\xa074)  Lahore, West Punjab, Dominion of Pakistan |. Shehbaz Sharif is the president of the Pakistan Muslim League (N) (PML-N) political party. This makes him the longest-serving Chief Minister of Punjab "Punjab (Pakistan)") province. Shehbaz was first elected to the Provincial Assembly of the Punjab in 1988. * Shehbaz Sharif as Prime Minister of Pakistan. Shehbaz Sharif was born on 23 September 1951, in Lahore, Punjab "Punjab (Pakistan)"), Pakistan. His elder brother, Nawaz Sharif, has served as Prime Minister of Pakistan three times. Shehbaz was re-elected to the Punjab Assembly in 1997. ## Shehbaz Sharif as Prime Minister of Pakistan. On 10 April 2022, Shehbaz Sharif was chosen by opposition parties to be their candidate for Prime Minister. On 3 March 2024, Shehbaz Sharif was re-elected as Prime Minister of Pakistan for a second time.\n\n[2] Shehbaz Sharif - Wikipedia\n    Muhammad Shehbaz Sharif (1951-09-23) 23 September 1951 (age 74). Lahore, West Punjab, Pakistan · PML(N) (1993–present).\n\n[3] Shahbaz Sharif Age, Wife, Family & Biography - Hamariweb.com\n    Shahbaz Sharif is a famous Pakistani Prime Minister Of Pakistan, who was born on Sep 23, 1951 in Lahore, Pakistan. Shahbaz Sharif was born to a noble family, from Lahore, Pakistan and his father name was Muhammad Sharif and he has two brother name Abbas Sharif and Nawaz Sharif. Hamza Shahbaz Sharif was born September 6, 1974, he is a Pakistani politician who is a member of the Pakistan Muslim League (Nawaz) (PML-N) party. He is the son of former Chief Minister of Punjab, Shahbaz Sharif and the nephew of former Prime Minister of Pakistan, Nawaz Sharif. Hamza Shahbaz Sharif is a Pakistani politician who is a member of the Pakistan Muslim League (Nawaz) (PML-N) party. Hamza Shahbaz Family: He is the nephew of the Mian Muhammad Nawaz Sharif and the son of Pakistan\'s current prime minister, Mian Muhammad Shahbaz Sharif. His elder daughter, Maryam Nawaz Sharif, is a prominent Pakistani politician and has been a central figure in the Pakistan Muslim League-Nawaz (PML-N), a political party led by her father.', 'id': 'lc_af8c2339-8fd2-4f40-ae62-75f742c52745'}]
+[tool_node] execution completed.
+   Thought: [{'type': 'text', 'text': '[1] Shehbaz Sharif Facts for Kids\n    | Preceded by | Anwaar ul Haq Kakar (Caretaker Prime Minister of Pakistan) |. | Born | Muhammad Shehbaz Sharif   (1951-09-23) 23 September 1951 (age\xa074)  Lahore, West Punjab, Dominion of Pakistan |. Shehbaz Sharif is the president of the Pakistan Muslim League (N) (PML-N) political party. This makes him the longest-serving Chief Minister of Punjab "Punjab (Pakistan)") province. Shehbaz was first elected to the Provincial Assembly of the Punjab in 1988. * Shehbaz Sharif as Prime Minister of Pakistan. Shehbaz Sharif was born on 23 September 1951, in Lahore, Punjab "Punjab (Pakistan)"), Pakistan. His elder brother, Nawaz Sharif, has served as Prime Minister of Pakistan three times. Shehbaz was re-elected to the Punjab Assembly in 1997. ## Shehbaz Sharif as Prime Minister of Pakistan. On 10 April 2022, Shehbaz Sharif was chosen by opposition parties to be their candidate for Prime Minister. On 3 March 2024, Shehbaz Sharif was re-elected as Prime Minister of Pakistan for a second time.\n\n[2] Shehbaz Sharif - Wikipedia\n    Muhammad Shehbaz Sharif (1951-09-23) 23 September 1951 (age 74). Lahore, West Punjab, Pakistan · PML(N) (1993–present).\n\n[3] Shahbaz Sharif Age, Wife, Family & Biography - Hamariweb.com\n    Shahbaz Sharif is a famous Pakistani Prime Minister Of Pakistan, who was born on Sep 23, 1951 in Lahore, Pakistan. Shahbaz Sharif was born to a noble family, from Lahore, Pakistan and his father name was Muhammad Sharif and he has two brother name Abbas Sharif and Nawaz Sharif. Hamza Shahbaz Sharif was born September 6, 1974, he is a Pakistani politician who is a member of the Pakistan Muslim League (Nawaz) (PML-N) party. He is the son of former Chief Minister of Punjab, Shahbaz Sharif and the nephew of former Prime Minister of Pakistan, Nawaz Sharif. Hamza Shahbaz Sharif is a Pakistani politician who is a member of the Pakistan Muslim League (Nawaz) (PML-N) party. Hamza Shahbaz Family: He is the nephew of the Mian Muhammad Nawaz Sharif and the son of Pakistan\'s current prime minister, Mian Muhammad Shahbaz Sharif. His elder daughter, Maryam Nawaz Sharif, is a prominent Pakistani politician and has been a central figure in the Pakistan Muslim League-Nawaz (PML-N), a political party led by her father.', 'id': 'lc_af8c2339-8fd2-4f40-ae62-75f742c52745'}]
+[react_node] execution completed.
+   Thought: Based on the information I've gathered, here's the complete answer:
+
+## Weather in Lahore
+- **Condition:** Sunny
+- **Temperature:** 30.1°C
+- **Feels like:** 18.7°C
+- **Wind:** 2.7 km/h
+- **Humidity:** 76%
+
+## Current Prime Minister of Pakistan
+**Mian Muhammad Shehbaz Sharif** is the current Prime Minister of Pakistan, serving since March 2024 (his second term).
+
+## Age of PM
+**Shehbaz Sharif is 74 years old** (born on September 23, 1951).
+
+## Will This Weather Suit PM's Health?
+
+For a 74-year-old person, the current weather conditions in Lahore present some **health concerns**:
+
+1. **High Temperature (30.1°C):** Hot weather can be challenging for elderly individuals, increasing the risk of heat exhaustion and dehydration.
+
+2. **High Humidity (76%):** Makes it harder for the body to cool down through sweating, which can be uncomfortable and potentially dangerous for older adults.
+
+3. **Recommendation:** While the sunny weather is generally pleasant, the PM should:
+   - Stay hydrated
+   - Avoid prolonged sun exposure
+   - Stay in air-conditioned environments during peak heat hours
+   - Take necessary precautions given his age
+
+**Conclusion:** The hot and humid weather in Lahore may not be ideal for a 74-year-old's health, and appropriate precautions should be taken.
+
+=============================
+Final Answer:
+Based on the information I've gathered, here's the complete answer:
+
+## Weather in Lahore
+- **Condition:** Sunny
+- **Temperature:** 30.1°C
+- **Feels like:** 18.7°C
+- **Wind:** 2.7 km/h
+- **Humidity:** 76%
+
+## Current Prime Minister of Pakistan
+**Mian Muhammad Shehbaz Sharif** is the current Prime Minister of Pakistan, serving since March 2024 (his second term).
+
+## Age of PM
+**Shehbaz Sharif is 74 years old** (born on September 23, 1951).
+
+## Will This Weather Suit PM's Health?
+
+For a 74-year-old person, the current weather conditions in Lahore present some **health concerns**:
+
+1. **High Temperature (30.1°C):** Hot weather can be challenging for elderly individuals, increasing the risk of heat exhaustion and dehydration.
+
+2. **High Humidity (76%):** Makes it harder for the body to cool down through sweating, which can be uncomfortable and potentially dangerous for older adults.
+
+3. **Recommendation:** While the sunny weather is generally pleasant, the PM should:
+   - Stay hydrated
+   - Avoid prolonged sun exposure
+   - Stay in air-conditioned environments during peak heat hours
+   - Take necessary precautions given his age
+
+**Conclusion:** The hot and humid weather in Lahore may not be ideal for a 74-year-old's health, and appropriate precautions should be taken.
+[04/06/26 15:11:09] INFO     Processing request of type            server.py:720
+                             ListToolsRequest                                   
+[04/06/26 15:11:09] INFO     Processing request of type            server.py:720
+                             ListToolsRequest                                   
+[04/06/26 15:11:14] INFO     Processing request of type            server.py:720
+                             CallToolRequest                                    
+[04/06/26 15:11:17] INFO     Processing request of type            server.py:720
+                             ListToolsRequest                                   
+[04/06/26 15:11:20] INFO     Processing request of type            server.py:720
+                             CallToolRequest                                    
+[04/06/26 15:11:21] INFO     Processing request of type            server.py:720
+                             ListToolsRequest                                   
+
+
