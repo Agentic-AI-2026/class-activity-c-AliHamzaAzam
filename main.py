@@ -44,10 +44,6 @@ async def run():
     print("Initializing LLM and Tools...")
     llm = ChatOllama(model="minimax-m2.5:cloud", temperature=0)
 
-    # Test Query from Assignment
-    query = "What is the weather in Lahore and who is the current Prime Minister of Pakistan? Now get the age of PM and tell us will this weather suits PM health."
-    print(f"User Query: {query}\n")
-    
     # We need search, math, and weather tools for the query execution
     try:
         tools, tools_map = await get_mcp_tools(["search", "math", "weather"])
@@ -60,26 +56,39 @@ async def run():
     
     # Compile the LangGraph app
     app = create_graph(llm_with_tools, tools_map)
-    
-    # Initialize the required state
-    initial_state = {
-        "input": query,
-        "agent_scratchpad": [],
-        "final_answer": ""
-    }
-    
-    # Run the graph and stream intermediate steps
-    print("--- Running Graph ---")
-    async for event in app.astream(initial_state, stream_mode="updates"):
-        for node, state_update in event.items():
-            print(f"[{node}] execution completed.")
-            if "agent_scratchpad" in state_update:
-                last_msg = state_update["agent_scratchpad"][-1]
-                if hasattr(last_msg, "content") and last_msg.content:
-                    print(f"   Thought: {last_msg.content}")
 
-            if "final_answer" in state_update and state_update["final_answer"]:
-                print(f"\n=============================\nFinal Answer:\n{state_update['final_answer']}")
+    while True:
+        try:
+            query = input("\nEnter your query (or 'quit' to exit): ")
+            if query.lower() in ['quit', 'exit', 'q']:
+                break
+        except (KeyboardInterrupt, EOFError):
+            break
+            
+        if not query.strip():
+            continue
+            
+        print(f"\nUser Query: {query}\n")
+
+        # Initialize the required state
+        initial_state = {
+            "input": query,
+            "agent_scratchpad": [],
+            "final_answer": ""
+        }
+        
+        # Run the graph and stream intermediate steps
+        print("--- Running Graph ---")
+        async for event in app.astream(initial_state, stream_mode="updates"):
+            for node, state_update in event.items():
+                print(f"[{node}] execution completed.")
+                if "agent_scratchpad" in state_update:
+                    last_msg = state_update["agent_scratchpad"][-1]
+                    if hasattr(last_msg, "content") and last_msg.content:
+                        print(f"   Thought: {last_msg.content}")
+
+                if "final_answer" in state_update and state_update["final_answer"]:
+                    print(f"\n=============================\nFinal Answer:\n{state_update['final_answer']}")
 
 if __name__ == "__main__":
     asyncio.run(run())
